@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-export default class Song_Analyzer extends Component {
+class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Song_Analyzer', () => Song_Analyzer);
+AppRegistry.registerComponent('Song_Analyzer', () => Main);
