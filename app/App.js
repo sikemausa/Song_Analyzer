@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
-import Login from './Login';
+import Login from './components/Login';
 
 export default class App extends Component {
-
-  state = {
-    horizontalIsOn: false,
-  };
 
   render() {
     return (
@@ -17,7 +13,7 @@ export default class App extends Component {
           return (
             <View style={styles.container}>
               <Text style={styles.header}>{route.title}</Text>
-              <RouteComponent {...route} navigator={navigator} />
+              <RouteComponent {...route} navigator={navigator} thing={'thing'} />
             </View>
           )
         }}
