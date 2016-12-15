@@ -45,7 +45,7 @@ export default class Login extends Component {
         </View>
         <TouchableHighlight
           underlayColor='#949494'
-          onPress={this.onLogin}>
+          onPress={this.onLogin.bind(this)}>
           <Text>Log In</Text>
         </TouchableHighlight>
       </View>

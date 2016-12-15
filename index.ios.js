@@ -5,7 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
-import App from './app/App';
+import App from './app/containers/App';
 
 class Main extends Component {
   render() {
