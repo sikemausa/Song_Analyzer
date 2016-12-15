@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import Auth0Lock from 'react-native-lock';
+let credentials = require('../auth0-credentials');
+let lock = new Auth0Lock(credentials);
 
 export default class Login extends Component {
 
@@ -7,10 +10,36 @@ export default class Login extends Component {
     horizontalIsOn: false,
   };
 
+  onLogin() {
+    lock.show({
+      closable: true,
+    }, (err, profile, token) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      this.props.navigator.push({
+        name: 'Profile',
+        passProps: {
+          profile: profile,
+          token: token,
+        }
+      });
+    });
+  }
+
   render() {
     return (
       <View>
-        <Text>Hello There!</Text>
+        <View>
+          <Text>Auth0 Example</Text>
+          <Text>Identity made simple for Developers</Text>
+        </View>
+        <TouchableHighlight
+          underlayColor='#949494'
+          onPress={this.onLogin}>
+          <Text>Log In</Text>
+        </TouchableHighlight>
       </View>
     )
   }
