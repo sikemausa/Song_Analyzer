@@ -3,28 +3,26 @@ import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, Toucha
 import Auth0Lock from 'react-native-lock';
 let credentials = require('../../auth0-credentials');
 let lock = new Auth0Lock(credentials);
+import userContainer from '../containers/userContainer';
 import Search from './Search';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor (props) {
-   super(props)
+   super(props);
    }
 
-  state = {
-    horizontalIsOn: false,
-  };
-
   onLogin() {
+    const { getUser } = this.props;
+
     lock.show({
       closable: true,
     }, (err, profile, token) => {
-      state = {
-
-      };
       if (err) {
         console.log(err);
         return;
       }
+      getUser(profile);
+      console.log(this.props);
       this.props.navigator.push({
         title: 'Search',
         component: Search,
@@ -40,18 +38,18 @@ export default class Login extends Component {
     return (
       <View>
         <View>
-          <Text>Auth0 Example</Text>
-          <Text>Identity made simple for Developers</Text>
         </View>
         <TouchableHighlight
           underlayColor='#949494'
           onPress={this.onLogin.bind(this)}>
-          <Text>Log In</Text>
+          <Text>Log in</Text>
         </TouchableHighlight>
       </View>
     )
   }
 }
+
+export default userContainer(Login);
 
 let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
