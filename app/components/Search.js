@@ -52,6 +52,10 @@ class Search extends Component{
     })
     .then((response) => response.json())
     .then((responseJson) => { getSongs(responseJson);
+      Alert.alert(
+         `Nice search!`,
+         `It returned ${responseJson.tracks.items.length} results`);
+     });
   }
 
 }
