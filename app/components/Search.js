@@ -46,23 +46,28 @@ class Search extends Component{
 
   searchApiForSongs() {
     const { getSongs, songs } = this.props;
-    if(this.state.searchTerm === '') {
-      Alert.alert(
-        `Whoops!`
+    if(this.state.searchTerm === null) {
+      return Alert.alert(
+        `Whoops!`,
         `Looks like you didn't enter a search term`);
     }
     else {
-      let searchApiEndpoint = `https://api.spotify.com/v1/search?q=${this.state.searchTerm}&type=track,artist`
+      let searchApiEndpoint = `https://api.spotify.com/v1/search?q=${this.state.searchTerm}&type=track,artist&limit=50`
       fetch(searchApiEndpoint, {
         method: "GET"
       })
       .then((response) => response.json())
       .then((responseJson) => { getSongs(responseJson);
         if(responseJson.tracks.items.length > 0) {
-          Alert.alert(
+          return Alert.alert(
             `Right on!`,
             `Your search returned ${responseJson.tracks.items.length} results`);
+            console.log(responseJson);
           }
+        return Alert.alert(
+          `Bummer!`,
+          `Looks like your search didn't return any results`
+        )
         });
     }
   }
