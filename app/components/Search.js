@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import songsContainer from '../containers/songsContainer';
 import userContainer from '../containers/userContainer';
+import SongList from './SongList';
 
 class Search extends Component{
   constructor (props) {
@@ -59,10 +60,13 @@ class Search extends Component{
       .then((response) => response.json())
       .then((responseJson) => { getSongs(responseJson);
         if(responseJson.tracks.items.length > 0) {
-          return Alert.alert(
+          Alert.alert(
             `Right on!`,
             `Your search returned ${responseJson.tracks.items.length} results`);
-            console.log(responseJson);
+          return this.props.navigator.push({
+            title: 'SongList',
+            component: SongList,
+          });
           }
         return Alert.alert(
           `Bummer!`,
