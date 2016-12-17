@@ -11,7 +11,7 @@ class Login extends Component {
    super(props);
    }
 
-  onLogin() {
+  login() {
     const { getUser } = this.props;
 
     lock.show({
@@ -22,7 +22,6 @@ class Login extends Component {
         return;
       }
       getUser(profile);
-      console.log(this.props);
       this.props.navigator.push({
         title: 'Search',
         component: Search,
@@ -41,7 +40,7 @@ class Login extends Component {
         </View>
         <TouchableHighlight
           underlayColor='#949494'
-          onPress={this.onLogin.bind(this)}>
+          onPress={() => this.login()}>
           <Text>Log in</Text>
         </TouchableHighlight>
       </View>

@@ -1,7 +1,7 @@
 import {types} from './actionTypes';
 
 export const actionCreators = {
-  getSongs: () => {
-    return {type: types.GET_SONGS, data: "yo"};
+  getSongs: (data) => {
+    return {type: types.GET_SONGS, data: data};
   }
 };
