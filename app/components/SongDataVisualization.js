@@ -1,38 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
-import SongDataVisualization from './SongDataVisualization';
+import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
 
-class SongOverview extends Component {
+class SongDataVisualization extends Component {
   constructor (props) {
    super(props);
    }
 
   render() {
-    const { song } = this.props;
+    const { id } = this.props.passProps;
     return (
-      <TouchableHighlight onPress={() => {this.openSongStats()}}>
-        <View>
-          <Text>{song.name}</Text>
-          <Text>{song.artists[0].name}</Text>
-        </View>
-      </TouchableHighlight>
+      <Text>{ id }</Text>
     )
   }
-
-  openSongStats() {
-    this.props.navigator.push({
-      title: 'SongDataVisualization',
-      component: SongDataVisualization,
-      passProps: {
-        id: this.props.song.id,
-        navigator: this.props.navigator
-      }
-    });
-  }
-
 }
-
-export default SongOverview;
 
 const styles = StyleSheet.create({
   container: {
@@ -106,3 +86,6 @@ const styles = StyleSheet.create({
     height: 400
   },
 });
+
+
+export default SongDataVisualization;

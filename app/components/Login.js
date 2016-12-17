@@ -26,8 +26,7 @@ class Login extends Component {
         title: 'Search',
         component: Search,
         passProps: {
-          profile: profile,
-          token: token,
+          navigator: this.props.navigator
         }
       });
     });

@@ -9,13 +9,12 @@ class SongList extends Component {
    }
 
   render() {
-    const { songs } = this.props;
-    console.log(songs.tracks.items);
+    const { songs, navigator } = this.props;
     return (
       <ScrollView
         style={styles.scrollView}>
         {songs.tracks.items.map(function(song, i) {
-          return <SongOverview key={i} song={song} />}
+          return <SongOverview key={i} song={song} navigator={navigator} />}
         )}
       </ScrollView>
     )
