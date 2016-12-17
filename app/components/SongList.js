@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
 import songsContainer from '../containers/songsContainer';
-import Song from './Song';
+import SongOverview from './SongOverview';
 
 class SongList extends Component {
   constructor (props) {
@@ -15,7 +15,7 @@ class SongList extends Component {
       <ScrollView
         style={styles.scrollView}>
         {songs.tracks.items.map(function(song, i) {
-          return <Song key={i} song={song} />}
+          return <SongOverview key={i} song={song} />}
         )}
       </ScrollView>
     )

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
 
-class Song extends Component {
+class SongOverview extends Component {
   constructor (props) {
    super(props);
    }
@@ -19,11 +19,12 @@ class Song extends Component {
   }
 
   openSongStats() {
-    
+
   }
 
 }
 
+export default SongOverview;
 
 const styles = StyleSheet.create({
   container: {
@@ -97,6 +98,3 @@ const styles = StyleSheet.create({
     height: 400
   },
 });
-
-
-export default Song;
