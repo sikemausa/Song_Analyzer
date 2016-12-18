@@ -35,7 +35,7 @@ class Search extends Component{
             >
           </TextInput>
           <TouchableHighlight
-            onPress={() => this.playAudio()}>
+            onPress={() => this.searchApiForSongs()}>
             <Text>Search for songs</Text>
           </TouchableHighlight>
           <TouchableHighlight>

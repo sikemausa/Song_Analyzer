@@ -12,13 +12,13 @@ import Search from './Search';
 import SongList from './SongList';
 import SongOverview from './SongOverview';
 import SongDataVisualization from './SongDataVisualization';
-
+import Profile from './Profile';
 
 export default class App extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ component: Login, title: 'Please Log In' }}
+        initialRoute={{ component: Login }}
         renderScene={(route, navigator) => {
           let RouteComponent = route.component;
           return (
@@ -42,6 +42,7 @@ export default class App extends Component {
 
 const routes = [
   { component: Login, title: 'Login'},
+  { component: Profile, title: 'Profile'},
   { component: Search, title: 'Search' },
   { component: SongList, title: 'SongList' },
   { component: SongOverview, title: 'SongOverview' },
@@ -52,11 +53,7 @@ var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
     if(index > 0) {
       return (
-        <TouchableHighlight onPress={() => {
-          navigator.push({
-          title: 'Profile',
-          component: Profile,
-        })}}>
+        <TouchableHighlight onPress={() => navigator.pop()}>
           <Text style={styles.prevButton}>Prev</Text>
         </TouchableHighlight>
       )
@@ -64,12 +61,25 @@ var NavigationBarRouteMapper = {
     else { return null }
   },
 
-  RightButton() {
-    return (
-      <TouchableHighlight onPress={() => navigator.pop()}>
-        <Text style={styles.prevButton}>Prev</Text>
-      </TouchableHighlight>
-    )
+  RightButton(route, navigator, index, navState) {
+    let display;
+    if(route.title !== "Profile") {
+      display = (
+        <TouchableHighlight onPress={() => {
+          navigator.push({
+          title: 'Profile',
+          component: Profile,
+        })}}>
+          <Text style={styles.prevButton}>Profile</Text>
+        </TouchableHighlight>
+      )
+    }
+    if(route.title === "Profile" || route.__navigatorRouteID === 0){
+      display = (
+        <Text>{null}</Text>
+      )
+    }
+    return display;
   },
 
   Title(route, navigator, index, navState) {
