@@ -22,8 +22,10 @@ class SongDataVisualization extends Component {
       method: "GET"
     })
     .then((response) => response.json())
-    .then((responseJson) => { getSongs(responseJson);
+    .then((responseJson) => { getSongData(responseJson);
   }
+
+  
 
 const styles = StyleSheet.create({
   container: {
