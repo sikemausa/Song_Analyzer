@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import { StyleSheet,
+         Dimensions,
+         Platform,
+         Text,
+         View,
+         Switch,
+         Navigator,
+         TouchableHighlight } from 'react-native';
 import Login from './Login';
 
 export default class App extends Component {
-
-  state = {
-    horizontalIsOn: false,
-  };
-
   render() {
     return (
       <Navigator
