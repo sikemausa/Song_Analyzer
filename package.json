@@ -10,6 +10,7 @@
     "react": "15.4.1",
     "react-native": "0.39.2",
     "react-native-audio-streaming": "^2.3.1",
+    "react-native-auth0": "^1.0.0-beta.1",
     "react-native-circular-progress": "0.0.7",
     "react-native-ios-network-audio": "0.0.9",
     "react-native-lock": "^0.4.0",
