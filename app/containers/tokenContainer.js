@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { actionCreators } from '../actions/userActions';
+import { actionCreators } from '../actions/tokenActions';
 
 const mapStateToProps = (state) => {
-  return { user: state.token };
+  return { token: state.token };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUser: (token) => {
-       dispatch(actionCreators.getUser(token));
+    getToken: (token) => {
+       dispatch(actionCreators.getToken(token));
      }
   };
 };

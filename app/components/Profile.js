@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Image, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import userContainer from '../containers/userContainer';
+import tokenContainer from '../containers/tokenContainer';
 
 class Profile extends Component {
   constructor (props) {
@@ -9,17 +10,16 @@ class Profile extends Component {
    }
 
   render() {
-    const { user } = this.props;
+    const { user, token } = this.props;
     let firstName = user.extraInfo.given_name;
+    console.log(this.props);
       return (
         <View>
-          <TouchableHighlight onPress={() => this.authorizeUser()}>
             <Text>Thanks for dropping in {firstName}!</Text>
-          </TouchableHighlight>
-          <Image
+          {/* <Image
             style={{width: 50, height: 50}}
             source={{uri: user.picture}}
-          />
+          /> */}
         </View>
       );
   }
@@ -36,7 +36,7 @@ class Profile extends Component {
 }
 
 
-  export default userContainer(Profile);
+  export default tokenContainer(userContainer(Profile));
 
 
 const styles = StyleSheet.create({

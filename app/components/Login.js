@@ -4,6 +4,7 @@ import Auth0Lock from 'react-native-lock';
 let credentials = require('../../auth0-credentials');
 let lock = new Auth0Lock(credentials);
 import userContainer from '../containers/userContainer';
+import tokenContainer from '../containers/tokenContainer';
 import Search from './Search';
 import Profile from './Profile';
 
@@ -13,7 +14,7 @@ class Login extends Component {
    }
 
   login() {
-    const { getUser } = this.props;
+    const { getUser, getToken } = this.props;
     lock.show({
       closable: true,
     }, (err, profile, token) => {
@@ -21,8 +22,9 @@ class Login extends Component {
         console.log(err);
         return;
       }
-      getUser(profile);
       console.log(token);
+      getToken(token);
+      getUser(profile);
       this.props.navigator.push({
         title: 'Search',
         component: Search,
@@ -62,7 +64,7 @@ class Login extends Component {
   }
 }
 
-export default userContainer(Login);
+export default tokenContainer(userContainer(Login));
 
 let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
