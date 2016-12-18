@@ -57,8 +57,8 @@ class Search extends Component{
       fetch(searchApiEndpoint, {
         method: "GET"
       })
-      .then((response) => response.json())
-      .then((responseJson) => { getSongs(responseJson);
+      .then(response => response.json())
+      .then(responseJson => { getSongs(responseJson);
         if(responseJson.tracks.items.length > 0) {
           Alert.alert(
             `Right on!`,
