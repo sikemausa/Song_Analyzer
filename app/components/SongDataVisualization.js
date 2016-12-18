@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 class SongDataVisualization extends Component {
   constructor (props) {
@@ -9,7 +10,15 @@ class SongDataVisualization extends Component {
   render() {
     const { id } = this.props.passProps;
     return (
-      <Text>{ id }</Text>
+      <View>
+        <Text>{ id }</Text>
+        <AnimatedCircularProgress
+          size={120}
+          width={15}
+          fill={100}
+          tintColor="#00e0ff"
+          backgroundColor="#3d5875" />
+        </View>
     )
   }
 }
