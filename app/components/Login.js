@@ -13,7 +13,6 @@ class Login extends Component {
 
   login() {
     const { getUser } = this.props;
-
     lock.show({
       closable: true,
     }, (err, profile, token) => {
@@ -33,15 +32,29 @@ class Login extends Component {
   }
 
   render() {
+    const { user } = this.props;
+    let display;
+    if(user.length === 0){
+      display = (
+        <View>
+          <View>
+          </View>
+          <TouchableHighlight
+            underlayColor='#949494'
+            onPress={() => this.login()}>
+            <Text>Log in</Text>
+          </TouchableHighlight>
+        </View>
+      );
+    }
+    if(user.length !== 0){
+      display = (
+        <Profile />
+      )
+    }
     return (
       <View>
-        <View>
-        </View>
-        <TouchableHighlight
-          underlayColor='#949494'
-          onPress={() => this.login()}>
-          <Text>Log in</Text>
-        </TouchableHighlight>
+        {display}
       </View>
     )
   }

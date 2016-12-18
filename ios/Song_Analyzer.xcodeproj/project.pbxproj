@@ -26,7 +26,11 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8CA9536FB29E1D3561B6EA2A /* libPods-Song_AnalyzerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE85B329B534C74E95E48E /* libPods-Song_AnalyzerTests.a */; };
+		9312AF201E06F3BD00098F07 /* libPods-ReactNativeAudioStreaming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9312AF1D1E06F39200098F07 /* libPods-ReactNativeAudioStreaming.a */; };
+		9312AF221E06F6F500098F07 /* RNAudioPlayerURL.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 9312AF211E06F6F500098F07 /* RNAudioPlayerURL.m */; };
+		9312AF241E06F70A00098F07 /* RNAudioPlayerURL.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 9312AF231E06F70A00098F07 /* RNAudioPlayerURL.h */; };
 		9378C6441E060B8800476EB5 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9378C6301E060ADE00476EB5 /* libART.a */; };
+		B589198690D244AF89673BB1 /* libReactNativeAudioStreaming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A830C58E15463085DDD1DC /* libReactNativeAudioStreaming.a */; };
 		F895252D69BF96E8CFE486C9 /* libPods-Song_Analyzer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE76A22F1918BBCEAE95C893 /* libPods-Song_Analyzer.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +126,27 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		9312AF151E06F33F00098F07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3397BCE082E411AB681072A /* ReactNativeAudioStreaming.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = ReactNativeAudioStreaming;
+		};
+		9312AF1C1E06F39200098F07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9312AF171E06F38000098F07 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D796608261BE7EF75B9CA099BE45490;
+			remoteInfo = "Pods-ReactNativeAudioStreaming";
+		};
+		9312AF1E1E06F39200098F07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9312AF171E06F38000098F07 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8354B6B10F10687EE626DF43663B075A;
+			remoteInfo = StreamingKit;
+		};
 		9378C5FB1E0608B900476EB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1A6EE1317AB84C6DAFBF5E44 /* A0RNLock.xcodeproj */;
@@ -215,9 +240,14 @@
 		6EAE85B329B534C74E95E48E /* libPods-Song_AnalyzerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Song_AnalyzerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		85A830C58E15463085DDD1DC /* libReactNativeAudioStreaming.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeAudioStreaming.a; sourceTree = "<group>"; };
+		9312AF171E06F38000098F07 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "../node_modules/react-native-audio-streaming/ios/Pods/Pods.xcodeproj"; sourceTree = "<group>"; };
+		9312AF211E06F6F500098F07 /* RNAudioPlayerURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNAudioPlayerURL.m; path = "../node_modules/react-native-ios-network-audio/RNAudioPlayerURL.m"; sourceTree = "<group>"; };
+		9312AF231E06F70A00098F07 /* RNAudioPlayerURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNAudioPlayerURL.h; path = "../node_modules/react-native-ios-network-audio/RNAudioPlayerURL.h"; sourceTree = "<group>"; };
 		9378C62A1E060ADE00476EB5 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		A52FCB90479A264B0C3D3E60 /* Pods-Song_AnalyzerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Song_AnalyzerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Song_AnalyzerTests/Pods-Song_AnalyzerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F6DCD63C599E8E5CFDA391 /* Pods-Song_AnalyzerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Song_AnalyzerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Song_AnalyzerTests/Pods-Song_AnalyzerTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3397BCE082E411AB681072A /* ReactNativeAudioStreaming.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeAudioStreaming.xcodeproj; path = "../node_modules/react-native-audio-streaming/ios/ReactNativeAudioStreaming.xcodeproj"; sourceTree = "<group>"; };
 		FE76A22F1918BBCEAE95C893 /* libPods-Song_Analyzer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Song_Analyzer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -235,6 +265,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9312AF241E06F70A00098F07 /* RNAudioPlayerURL.h in Frameworks */,
+				9312AF221E06F6F500098F07 /* RNAudioPlayerURL.m in Frameworks */,
+				9312AF201E06F3BD00098F07 /* libPods-ReactNativeAudioStreaming.a in Frameworks */,
 				9378C6441E060B8800476EB5 /* libART.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -249,6 +282,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				15EEB65162174CA19FA5DDBD /* libA0RNLock.a in Frameworks */,
 				F895252D69BF96E8CFE486C9 /* libPods-Song_Analyzer.a in Frameworks */,
+				B589198690D244AF89673BB1 /* libReactNativeAudioStreaming.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +421,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				9312AF171E06F38000098F07 /* Pods.xcodeproj */,
 				9378C62A1E060ADE00476EB5 /* ART.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -400,6 +435,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				1A6EE1317AB84C6DAFBF5E44 /* A0RNLock.xcodeproj */,
+				E3397BCE082E411AB681072A /* ReactNativeAudioStreaming.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -439,10 +475,29 @@
 		91E7C667139D15F8D6C63252 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9312AF231E06F70A00098F07 /* RNAudioPlayerURL.h */,
+				9312AF211E06F6F500098F07 /* RNAudioPlayerURL.m */,
 				FE76A22F1918BBCEAE95C893 /* libPods-Song_Analyzer.a */,
 				6EAE85B329B534C74E95E48E /* libPods-Song_AnalyzerTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9312AEFD1E06F33D00098F07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9312AF161E06F33F00098F07 /* libReactNativeAudioStreaming.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9312AF181E06F38000098F07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9312AF1D1E06F39200098F07 /* libPods-ReactNativeAudioStreaming.a */,
+				9312AF1F1E06F39200098F07 /* libStreamingKit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9378C5F81E0608B700476EB5 /* Products */ = {
@@ -542,6 +597,10 @@
 					ProjectRef = 9378C62A1E060ADE00476EB5 /* ART.xcodeproj */;
 				},
 				{
+					ProductGroup = 9312AF181E06F38000098F07 /* Products */;
+					ProjectRef = 9312AF171E06F38000098F07 /* Pods.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -584,6 +643,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 9312AEFD1E06F33D00098F07 /* Products */;
+					ProjectRef = E3397BCE082E411AB681072A /* ReactNativeAudioStreaming.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -677,6 +740,27 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9312AF161E06F33F00098F07 /* libReactNativeAudioStreaming.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeAudioStreaming.a;
+			remoteRef = 9312AF151E06F33F00098F07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9312AF1D1E06F39200098F07 /* libPods-ReactNativeAudioStreaming.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-ReactNativeAudioStreaming.a";
+			remoteRef = 9312AF1C1E06F39200098F07 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9312AF1F1E06F39200098F07 /* libStreamingKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libStreamingKit.a;
+			remoteRef = 9312AF1E1E06F39200098F07 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9378C5FC1E0608B900476EB5 /* libA0RNLock.a */ = {
@@ -926,6 +1010,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Song_Analyzer.app/Song_Analyzer";
@@ -943,6 +1028,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1026,6 +1112,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1067,6 +1154,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

@@ -52,7 +52,11 @@ var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
     if(index > 0) {
       return (
-        <TouchableHighlight onPress={() => navigator.pop()}>
+        <TouchableHighlight onPress={() => {
+          navigator.push({
+          title: 'Profile',
+          component: Profile,
+        })}}>
           <Text style={styles.prevButton}>Prev</Text>
         </TouchableHighlight>
       )
@@ -61,7 +65,11 @@ var NavigationBarRouteMapper = {
   },
 
   RightButton() {
-    return null
+    return (
+      <TouchableHighlight onPress={() => navigator.pop()}>
+        <Text style={styles.prevButton}>Prev</Text>
+      </TouchableHighlight>
+    )
   },
 
   Title(route, navigator, index, navState) {
