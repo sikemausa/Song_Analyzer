@@ -8,6 +8,10 @@ class SongDataVisualization extends Component {
    super(props);
    }
 
+  componentDidMount() {
+    this.searchApiForSongData();
+  }
+
   render() {
     const { id } = this.props.passProps;
     return (
@@ -17,7 +21,15 @@ class SongDataVisualization extends Component {
 
   searchApiForSongData() {
     const { id } = this.props.passProps;
-    let searchEndPoint = `https://api.spotify.com/v1/audio-features/${id}`;
+    let searchApiEndpoint = `https://api.spotify.com/v1/audio-features/3n3Ppam7vgaVa1iaRUc9Lp`
+    fetch(searchApiEndpoint, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer BQDl0jIEluXycRmMOuKglmJ_ca3NoT_PHTqfqZo6JjPbLw4dnZNtq_WVyeqOCxvKM1m_JSTQw6fGZPKFhocbyADLEwRK2Kt7bB9Ve3u6MnIeSk_bKJMdVy6uPqdZdOal1VM",
+      },
+    })
+    .then(response => response.json())
   }
 }
 
