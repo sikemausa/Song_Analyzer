@@ -10,11 +10,12 @@ class Profile extends Component {
 
   render() {
     const { user } = this.props;
-    console.log(user);
     let firstName = user.extraInfo.given_name;
       return (
         <View>
-          <Text>Thanks for dropping in {firstName}!</Text>
+          <TouchableHighlight onPress={() => this.authorizeUser()}>
+            <Text>Thanks for dropping in {firstName}!</Text>
+          </TouchableHighlight>
           <Image
             style={{width: 50, height: 50}}
             source={{uri: user.picture}}
@@ -23,14 +24,15 @@ class Profile extends Component {
       );
   }
 
-  updateUserInfo() {
-    const { user } = this.props;
-    let auth0Endpoint = `song-analyzer.auth0.com/api/users/${user.userId}`;
-    fetch(auth0Endpoint, {
-      method: "PATCH",
-      body: `{ user_metadata: { addresses: { home: '123 Main Street, Anytown, ST 12345' } } }`,
-    })
-  }
+  // updateUserInfo() {
+  //   const { user } = this.props;
+  //   let auth0Endpoint = `song-analyzer.auth0.com/api/users/${user.userId}`;
+  //   fetch(auth0Endpoint, {
+  //     method: "PATCH",
+  //     body: `{ user_metadata: { addresses: { home: '123 Main Street, Anytown, ST 12345' } } }`,
+  //     Content-Type
+  //   })
+  // }
 }
 
 
