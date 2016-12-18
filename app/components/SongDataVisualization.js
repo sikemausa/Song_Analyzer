@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import songDataContainer from '../containers/songDataContainer';
 
 class SongDataVisualization extends Component {
   constructor (props) {
@@ -13,19 +14,15 @@ class SongDataVisualization extends Component {
       <Text>{ id }</Text>
     )
   }
-}
 
   searchApiForSongData() {
     const { id } = this.props.passProps;
     let searchEndPoint = `https://api.spotify.com/v1/audio-features/${id}`;
-    fetch(searchApiEndpoint, {
-      method: "GET"
-    })
-    .then((response) => response.json())
-    .then((responseJson) => { getSongData(responseJson);
   }
+}
 
-  
+  export default songDataContainer(SongDataVisualization);
+
 
 const styles = StyleSheet.create({
   container: {
@@ -99,6 +96,3 @@ const styles = StyleSheet.create({
     height: 400
   },
 });
-
-
-export default SongDataVisualization;
