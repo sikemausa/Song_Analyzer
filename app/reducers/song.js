@@ -1,6 +1,7 @@
 import * as types from '../actions/actionTypes';
+import { Map } from 'immutable';
 
-const initialState = [];
+const initialState = Map([]);
 
 const songs = (state = initialState, action) => {
   const { type, data } = action;

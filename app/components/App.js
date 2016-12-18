@@ -23,6 +23,11 @@ export default class App extends Component {
             </View>
           )
         }}
+        navigationBar={
+        <Navigator.NavigationBar
+          style={ styles.nav }
+          routeMapper={NavigationBarRouteMapper} />
+        }
         configureScene={(route, routeStack) =>
           Navigator.SceneConfigs.FloatFromBottom}
       />

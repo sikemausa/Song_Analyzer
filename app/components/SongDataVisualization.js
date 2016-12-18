@@ -14,11 +14,27 @@ class SongDataVisualization extends Component {
 
   render() {
     const { songData } = this.props;
-    return (
-      <TouchableHighlight onPress={() => this.authorizeSearch()}>
-        <Text>{ songData.danceability }</Text>
-      </TouchableHighlight>
-    )
+    let display;
+    if(this.props.songData.length === 0){
+      display = <Text>Data loading: Please wait</Text>;
+    }
+    if(this.props.songData.length !== 0 ){
+      display = <View>
+                  <Text>Danceability: { songData.danceability }</Text>
+                  <Text>Energy: { songData.energy}</Text>
+                  <Text>Loudness: { songData.loudness }</Text>
+                  <Text>Speechiness: { songData.speechiness }</Text>
+                  <Text>Acousticness: { songData.acousticness }</Text>
+                  <Text>Instrumentalness: { songData.instrumentalness }</Text>
+                  <Text>Valence: { songData.valence }</Text>
+                  <Text>Tempo: { songData.tempo }</Text>
+                </View>
+    }
+        return (
+          <View>
+            {display}
+          </View>
+        )
   }
 
   authorizeSearch() {
