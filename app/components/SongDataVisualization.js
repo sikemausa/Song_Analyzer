@@ -8,28 +8,50 @@ class SongDataVisualization extends Component {
    super(props);
    }
 
-  componentDidMount() {
-    this.searchApiForSongData();
+  componentWillMount() {
+    this.authorizeSearch();
   }
 
   render() {
-    const { id } = this.props.passProps;
+    const { songData } = this.props;
     return (
-      <Text>{ id }</Text>
+      <TouchableHighlight onPress={() => this.authorizeSearch()}>
+        <Text>{ songData.danceability }</Text>
+      </TouchableHighlight>
     )
   }
 
-  searchApiForSongData() {
+  authorizeSearch() {
+    let authTokenEndpoint = 'https://accounts.spotify.com/api/token'
+    let spotifyClientId = '91ef68d8a09e45218d1b72d3154ddf14';
+    let spotifyClientSecret = '08de9b68a652445699879ab6e4aa8d0e'
+    let encodedAuthorization = btoa(spotifyClientId + ":" + spotifyClientSecret);
+    fetch(authTokenEndpoint, {
+      method: "POST",
+      body: "grant_type=client_credentials",
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `Basic ${encodedAuthorization}`,
+        "Content-Type" : "application/x-www-form-urlencoded",
+      },
+    })
+    .then(response => response.json())
+    .then(responseJson => this.searchApiForSongData(responseJson.access_token));
+  }
+
+  searchApiForSongData(authToken) {
     const { id } = this.props.passProps;
-    let searchApiEndpoint = `https://api.spotify.com/v1/audio-features/3n3Ppam7vgaVa1iaRUc9Lp`
+    const { getSongData } = this.props;
+    let searchApiEndpoint = `https://api.spotify.com/v1/audio-features/${id}`
     fetch(searchApiEndpoint, {
       method: "GET",
       headers: {
         "Accept": "application/json",
-        "Authorization": "Bearer BQDl0jIEluXycRmMOuKglmJ_ca3NoT_PHTqfqZo6JjPbLw4dnZNtq_WVyeqOCxvKM1m_JSTQw6fGZPKFhocbyADLEwRK2Kt7bB9Ve3u6MnIeSk_bKJMdVy6uPqdZdOal1VM",
+        "Authorization": `Bearer ${authToken}`,
       },
     })
     .then(response => response.json())
+    .then(responseJson => getSongData(responseJson))
   }
 }
 
