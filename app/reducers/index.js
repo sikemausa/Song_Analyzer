@@ -7,6 +7,7 @@ const reducers = combineReducers({
   songs,
   user,
   songData,
+  token,
 });
 
 export default reducers;
