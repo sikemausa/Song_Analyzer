@@ -10,18 +10,20 @@ class SongDataVisualization extends Component {
   render() {
     const { id } = this.props.passProps;
     return (
-      <View>
-        <Text>{ id }</Text>
-        <AnimatedCircularProgress
-          size={120}
-          width={15}
-          fill={100}
-          tintColor="#00e0ff"
-          backgroundColor="#3d5875" />
-        </View>
+      <Text>{ id }</Text>
     )
   }
 }
+
+  searchApiForSongData() {
+    const { id } = this.props.passProps;
+    let searchEndPoint = `https://api.spotify.com/v1/audio-features/${id}`;
+    fetch(searchApiEndpoint, {
+      method: "GET"
+    })
+    .then((response) => response.json())
+    .then((responseJson) => { getSongs(responseJson);
+  }
 
 const styles = StyleSheet.create({
   container: {
