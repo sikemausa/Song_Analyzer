@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
+import { StyleSheet, Image, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView, Button } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import userContainer from '../containers/userContainer';
 import tokenContainer from '../containers/tokenContainer';
@@ -24,6 +24,10 @@ class Profile extends Component {
             style={{width: 50, height: 50}}
             source={{uri: user.picture}}
           />
+          {/* <Button
+            title="Edit Profile"
+            color="#15aebd"
+          /> */}
         </View>
       );
   }
