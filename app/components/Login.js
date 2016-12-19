@@ -11,6 +11,10 @@ import Profile from './Profile';
 class Login extends Component {
   constructor (props) {
    super(props);
+    this.state={
+      profile: null,
+      id: null,
+    };
    }
 
   login() {
@@ -22,9 +26,10 @@ class Login extends Component {
         console.log(err);
         return;
       }
-      console.log(token);
+      console.log(this.props);
       getToken(token);
       getUser(profile);
+      // this.saveUser(profile);
       this.props.navigator.push({
         title: 'Search',
         component: Search,
