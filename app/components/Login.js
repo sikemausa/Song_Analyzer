@@ -29,7 +29,6 @@ class Login extends Component {
       console.log(this.props);
       getToken(token);
       getUser(profile);
-      // this.saveUser(profile);
       this.props.navigator.push({
         title: 'Search',
         component: Search,

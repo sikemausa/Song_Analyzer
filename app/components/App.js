@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       top: 50,
       backgroundColor: '#2E383F',
-      color: '#F9A828'
     },
     header: {
       fontSize: 24,
