@@ -26,7 +26,6 @@ class Login extends Component {
         console.log(err);
         return;
       }
-      console.log(this.props);
       getToken(token);
       getUser(profile);
       this.props.navigator.push({
@@ -40,29 +39,13 @@ class Login extends Component {
   }
 
   render() {
-    const { user } = this.props;
-    let display;
-    if(user.length === 0){
-      display = (
-        <View>
-          <View>
-          </View>
-          <TouchableHighlight
-            underlayColor='#949494'
-            onPress={() => this.login()}>
-            <Text>Log in</Text>
-          </TouchableHighlight>
-        </View>
-      );
-    }
-    if(user.length !== 0){
-      display = (
-        <Profile />
-      )
-    }
     return (
       <View>
-        {display}
+        <TouchableHighlight
+          underlayColor='#949494'
+          onPress={() => this.login()}>
+          <Text>Log in</Text>
+        </TouchableHighlight>
       </View>
     )
   }

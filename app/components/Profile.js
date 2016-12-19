@@ -5,6 +5,7 @@ import userContainer from '../containers/userContainer';
 import tokenContainer from '../containers/tokenContainer';
 import Auth0 from 'react-native-auth0';
 const auth0 = new Auth0('https://song-analyzer.auth0.com');
+import Login from './Login';
 
 class Profile extends Component {
   constructor (props) {
@@ -13,7 +14,6 @@ class Profile extends Component {
 
   render() {
     const { user, token } = this.props;
-    console.log(this.props);
     let firstName = user.extraInfo.given_name;
       return (
         <View>
@@ -24,12 +24,23 @@ class Profile extends Component {
             style={{width: 50, height: 50}}
             source={{uri: user.picture}}
           />
-          {/* <Button
-            title="Edit Profile"
+          <Button
+            onPress={() => this.logOut()}
+            title="Log Out"
             color="#15aebd"
-          /> */}
+          />
         </View>
       );
+  }
+
+  logOut() {
+    this.props.navigator.push({
+      title: 'Login',
+      component: Login,
+      passProps: {
+        navigator: this.props.navigator
+      }
+    });
   }
 
   updateUserInfo() {

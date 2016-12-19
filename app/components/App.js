@@ -51,7 +51,7 @@ const routes = [
 
 var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
-    if(index > 1) {
+    if(index > 1 && route.title !== "Login") {
       return (
         <TouchableHighlight onPress={() => navigator.pop()}>
           <Text style={styles.prevButton}>Prev</Text>
@@ -63,7 +63,7 @@ var NavigationBarRouteMapper = {
 
   RightButton(route, navigator, index, navState) {
     let display;
-    if(route.title !== "Profile" && route.__navigatorRouteID !== 0) {
+    if(route.title !== "Profile" && route.__navigatorRouteID !== 0 && route.title !== "Login") {
       display = (
         <TouchableHighlight onPress={() => {
           navigator.push({
