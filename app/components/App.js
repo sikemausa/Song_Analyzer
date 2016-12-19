@@ -24,7 +24,8 @@ export default class App extends Component {
           return (
             <View style={styles.container}>
               <Text style={styles.header}>{route.title}</Text>
-              <RouteComponent {...route} navigator={navigator} />
+              <RouteComponent
+              {...route} navigator={navigator} />
             </View>
           )
         }}
@@ -94,6 +95,8 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       alignItems: 'center',
       top: 50,
+      backgroundColor: '#2E383F',
+      color: '#F9A828'
     },
     header: {
       fontSize: 24,

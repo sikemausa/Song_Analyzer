@@ -23,12 +23,13 @@ class SongDataVisualization extends Component {
               <View>
                 <View style={styles.graphContainer}>
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.danceability * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -40,12 +41,13 @@ class SongDataVisualization extends Component {
                   {/* <Text>Danceability: { songData.danceability }</Text> */}
                   <AnimatedCircularProgress
                   //edit calculations
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.loudness * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -58,12 +60,13 @@ class SongDataVisualization extends Component {
                 <View style={styles.graphContainer}>
                   {/* <Text>Loudness: { songData.loudness }</Text> */}
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.energy * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -74,12 +77,13 @@ class SongDataVisualization extends Component {
                   </AnimatedCircularProgress>
                   {/* <Text>Energy: { songData.energy}</Text> */}
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.speechiness * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -92,12 +96,13 @@ class SongDataVisualization extends Component {
                   <View style={styles.graphContainer}>
                   {/* <Text>Speechiness: { songData.speechiness }</Text> */}
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.acousticness * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -108,12 +113,13 @@ class SongDataVisualization extends Component {
                   </AnimatedCircularProgress>
                   {/* <Text>Acousticness: { songData.acousticness }</Text> */}
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.instrumentalness * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -126,12 +132,13 @@ class SongDataVisualization extends Component {
                   <View style={styles.graphContainer}>
                   {/* <Text>Instrumentalness: { songData.instrumentalness }</Text> */}
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.valence * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -142,12 +149,13 @@ class SongDataVisualization extends Component {
                   </AnimatedCircularProgress>
                   {/* <Text>Valence: { songData.valence }</Text> */}
                   <AnimatedCircularProgress
+                    rotation={0}
                     style={styles.graph}
                     size={100}
                     width={20}
                     fill={ (songData.tempo * 100) }
-                    tintColor="#00e0ff"
-                    backgroundColor="#3d5875">
+                    tintColor="#07617D"
+                    backgroundColor="#2a2a2a">
                     {
                       (fill) => (
                         <Text style={styles.points}>
@@ -214,7 +222,8 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       color: '#7591af',
       fontSize: 35,
-      fontWeight: "100"
+      fontWeight: "100",
+      color: '#F9A828',
     },
     graphContainer: {
       flexDirection: 'row',
