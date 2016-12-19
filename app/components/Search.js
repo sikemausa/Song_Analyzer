@@ -44,7 +44,7 @@ class Search extends Component{
 
   searchApiForSongs() {
     const { getSongs, songs } = this.props;
-    if(this.state.searchTerm === null) {
+    if(this.state.searchTerm === '' || this.state.searchTerm === null) {
       return Alert.alert(
         `Whoops!`,
         `Looks like you didn't enter a search term`);
@@ -59,7 +59,7 @@ class Search extends Component{
         if(responseJson.tracks.items.length > 0) {
           Alert.alert(
             `Right on!`,
-            `Your search returned ${responseJson.tracks.items.length} results`);
+            `Your search returned ${responseJson.tracks.items.length} sick beats`);
           return this.props.navigator.push({
             title: 'SongList',
             component: SongList,
@@ -67,7 +67,7 @@ class Search extends Component{
           }
         return Alert.alert(
           `Bummer!`,
-          `Looks like your search didn't return any results`
+          `Looks like your search didn't return any sick beats`
         )
         });
     }

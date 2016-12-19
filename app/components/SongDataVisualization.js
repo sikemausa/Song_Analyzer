@@ -44,7 +44,6 @@ class SongDataVisualization extends Component {
                     </View>
                     <View style={styles.column}>
                       <AnimatedCircularProgress
-                      //edit calculations
                         rotation={0}
                         style={styles.graph}
                         size={100}
