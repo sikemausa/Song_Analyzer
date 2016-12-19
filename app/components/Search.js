@@ -38,9 +38,6 @@ class Search extends Component{
             onPress={() => this.searchApiForSongs()}>
             <Text>Search for songs</Text>
           </TouchableHighlight>
-          <TouchableHighlight>
-            <Text>{user.name}</Text>
-          </TouchableHighlight>
         </View>
       )
     }
