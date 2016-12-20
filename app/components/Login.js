@@ -62,13 +62,13 @@ let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
   loginButton: {
     color: '#F9A828',
-    transform:[{translateY: 5}],
+    transform:[{translateY: 8}],
     textAlign: 'center',
     fontSize: 15,
   },
   container: {
     borderRadius: 25,
-    height: 30,
+    height: 40,
     width: 150,
     backgroundColor: '#000000',
     transform:[{translateY: -300}],
