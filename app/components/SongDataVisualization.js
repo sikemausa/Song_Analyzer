@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import songDataContainer from '../containers/songDataContainer';
+import Graph from './Graph';
 
 class SongDataVisualization extends Component {
   constructor (props) {
@@ -16,172 +17,53 @@ class SongDataVisualization extends Component {
     const { songData } = this.props;
     let display;
     if(this.props.songData.length === 0){
-      display = <Text>Data loading: Please wait</Text>;
+      display = <Text>Sick beats coming in hot!</Text>;
     }
     if(this.props.songData.length !== 0 ){
-      display =
-              <View>
-                <View style={styles.graphContainer}>
-                    <View style={styles.column}>
-                      <AnimatedCircularProgress
-                        rotation={0}
-                        style={styles.graph}
-                        size={100}
-                        width={20}
-                        fill={ (songData.danceability * 100) }
-                        tintColor="#07617D"
-                        backgroundColor="#2a2a2a">
-                        {
-                          (fill) => (
-                            <Text style={styles.points}>
-                              { Math.round(songData.danceability * 100) }
-                            </Text>
-                          )
-                        }
-                      </AnimatedCircularProgress>
-                      <Text style={styles.text}>Danceability</Text>
+      display = (
+                  <View>
+                    <View style={styles.graphContainer}>
+                      <Graph
+                        data={ Math.round(songData.danceability * 100)}
+                        attribute ="Danceability"
+                      />
+                      <Graph
+                        data={ Math.round((( 60 + songData.loudness ) * (100/60))) }
+                        attribute ="Volume"
+                      />
                     </View>
-                    <View style={styles.column}>
-                      <AnimatedCircularProgress
-                        rotation={0}
-                        style={styles.graph}
-                        size={100}
-                        width={20}
-                        fill={ Math.round((( 60 + songData.loudness ) * (100/60))) }
-                        tintColor="#07617D"
-                        backgroundColor="#2a2a2a">
-                        {
-                          (fill) => (
-                            <Text style={styles.points}>
-                              { Math.round((( 60 + songData.loudness ) * (100/60))) }
-                            </Text>
-                          )
-                        }
-                      </AnimatedCircularProgress>
-                      <Text style={styles.text}>Volume</Text>
-                  </View>
-                </View>
-                <View style={styles.graphContainer}>
-                  <View style={styles.column}>
-                    <AnimatedCircularProgress
-                      rotation={0}
-                      style={styles.graph}
-                      size={100}
-                      width={20}
-                      fill={ (songData.energy * 100) }
-                      tintColor="#07617D"
-                      backgroundColor="#2a2a2a">
-                      {
-                        (fill) => (
-                          <Text style={styles.points}>
-                            { Math.round(songData.energy * 100) }
-                          </Text>
-                        )
-                      }
-                    </AnimatedCircularProgress>
-                    <Text style={styles.text}>Energy</Text>
-                  </View>
-                  <View style={styles.column}>
-                    <AnimatedCircularProgress
-                      rotation={0}
-                      style={styles.graph}
-                      size={100}
-                      width={20}
-                      fill={ (songData.speechiness * 100) }
-                      tintColor="#07617D"
-                      backgroundColor="#2a2a2a">
-                      {
-                        (fill) => (
-                          <Text style={styles.points}>
-                            { Math.round(songData.speechiness * 100) }
-                          </Text>
-                        )
-                      }
-                    </AnimatedCircularProgress>
-                    <Text style={styles.text}>Speechiness</Text>
-                  </View>
-                </View>
-                  <View style={styles.graphContainer}>
-                    <View style={styles.column}>
-                      <AnimatedCircularProgress
-                        rotation={0}
-                        style={styles.graph}
-                        size={100}
-                        width={20}
-                        fill={ (songData.acousticness * 100) }
-                        tintColor="#07617D"
-                        backgroundColor="#2a2a2a">
-                        {
-                          (fill) => (
-                            <Text style={styles.points}>
-                              { Math.round(songData.acousticness * 100) }
-                            </Text>
-                          )
-                        }
-                      </AnimatedCircularProgress>
-                      <Text style={styles.text}>Acousticness</Text>
+                    <View style={styles.graphContainer}>
+                    <Graph
+                      data={ Math.round(songData.energy * 100) }
+                      attribute ="Energy"
+                    />
+                    <Graph
+                      data={ Math.round(songData.speechiness * 100) }
+                      attribute ="Vocals"
+                    />
                     </View>
-                    <View style={styles.column}>
-                      <AnimatedCircularProgress
-                        rotation={0}
-                        style={styles.graph}
-                        size={100}
-                        width={20}
-                        fill={ (songData.instrumentalness * 100) }
-                        tintColor="#07617D"
-                        backgroundColor="#2a2a2a">
-                        {
-                          (fill) => (
-                            <Text style={styles.points}>
-                              { Math.round(songData.instrumentalness * 100) }
-                            </Text>
-                          )
-                        }
-                      </AnimatedCircularProgress>
-                      <Text style={styles.text}>Instrumentalness</Text>
-                    </View>
+                      <View style={styles.graphContainer}>
+                      <Graph
+                        data={ Math.round(songData.speechiness * 100) }
+                        attribute ="Acousticness"
+                      />
+                      <Graph
+                        data={ Math.round(songData.instrumentalness * 100) }
+                        attribute ="Instrumentalness"
+                      />
+                      </View>
+                      <View style={styles.graphContainer}>
+                      <Graph
+                        data={ Math.round(songData.valence * 100) }
+                        attribute ="Valence"
+                      />
+                      <Graph
+                        data={ Math.floor( (1 - ((240 - songData.tempo) / 240)) * 100) }
+                        attribute ="Tempo"
+                      />
+                      </View>
                   </View>
-                  <View style={styles.graphContainer}>
-                    <View style={styles.column}>
-                      <AnimatedCircularProgress
-                        rotation={0}
-                        style={styles.graph}
-                        size={100}
-                        width={20}
-                        fill={ (songData.valence * 100) }
-                        tintColor="#07617D"
-                        backgroundColor="#2a2a2a">
-                        {
-                          (fill) => (
-                            <Text style={styles.points}>
-                              { Math.round(songData.valence * 100) }
-                            </Text>
-                          )
-                        }
-                      </AnimatedCircularProgress>
-                      <Text style={styles.text}>Valence</Text>
-                    </View>
-                    <View style={styles.column}>
-                      <AnimatedCircularProgress
-                        rotation={0}
-                        style={styles.graph}
-                        size={100}
-                        width={20}
-                        fill={ Math.floor( (1 - ((240 - songData.tempo) / 240)) * 100) }
-                        tintColor="#07617D"
-                        backgroundColor="#2a2a2a">
-                        {
-                          (fill) => (
-                            <Text style={styles.points}>
-                              { Math.floor( (1 - ((240 - songData.tempo) / 240)) * 100) }
-                            </Text>
-                          )
-                        }
-                      </AnimatedCircularProgress>
-                      <Text style={styles.text}>Tempo</Text>
-                    </View>
-                  </View>
-              </View>
+                )
     }
         return (
           <View>
