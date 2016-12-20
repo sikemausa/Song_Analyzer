@@ -40,8 +40,7 @@ class Search extends Component{
             value={this.state.subject}
             >
           </TextInput>
-          <TouchableHighlight
-            onPress={() => this.searchApiForSongs()}>
+          <TouchableHighlight>
             <Text style={styles.text}>Search for sick beats!</Text>
           </TouchableHighlight>
           <View style={styles.container}>

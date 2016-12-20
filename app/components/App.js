@@ -96,11 +96,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       marginBottom: 5,
       backgroundColor: '#2E383F',
-      color: '#F9A828',
       width: width,
       height: 30,
-    },
-    dinoList: {
-      padding: 5,
     },
 })
