@@ -19,16 +19,169 @@ class SongDataVisualization extends Component {
       display = <Text>Data loading: Please wait</Text>;
     }
     if(this.props.songData.length !== 0 ){
-      display = <View>
-                  <Text>Danceability: { songData.danceability }</Text>
-                  <Text>Energy: { songData.energy}</Text>
-                  <Text>Loudness: { songData.loudness }</Text>
-                  <Text>Speechiness: { songData.speechiness }</Text>
-                  <Text>Acousticness: { songData.acousticness }</Text>
-                  <Text>Instrumentalness: { songData.instrumentalness }</Text>
-                  <Text>Valence: { songData.valence }</Text>
-                  <Text>Tempo: { songData.tempo }</Text>
+      display =
+              <View>
+                <View style={styles.graphContainer}>
+                    <View style={styles.column}>
+                      <AnimatedCircularProgress
+                        rotation={0}
+                        style={styles.graph}
+                        size={100}
+                        width={20}
+                        fill={ (songData.danceability * 100) }
+                        tintColor="#07617D"
+                        backgroundColor="#2a2a2a">
+                        {
+                          (fill) => (
+                            <Text style={styles.points}>
+                              { Math.round(songData.danceability * 100) }
+                            </Text>
+                          )
+                        }
+                      </AnimatedCircularProgress>
+                      <Text style={styles.text}>Danceability</Text>
+                    </View>
+                    <View style={styles.column}>
+                      <AnimatedCircularProgress
+                        rotation={0}
+                        style={styles.graph}
+                        size={100}
+                        width={20}
+                        fill={ Math.round((( 60 + songData.loudness ) * (100/60))) }
+                        tintColor="#07617D"
+                        backgroundColor="#2a2a2a">
+                        {
+                          (fill) => (
+                            <Text style={styles.points}>
+                              { Math.round((( 60 + songData.loudness ) * (100/60))) }
+                            </Text>
+                          )
+                        }
+                      </AnimatedCircularProgress>
+                      <Text style={styles.text}>Volume</Text>
+                  </View>
                 </View>
+                <View style={styles.graphContainer}>
+                  <View style={styles.column}>
+                    <AnimatedCircularProgress
+                      rotation={0}
+                      style={styles.graph}
+                      size={100}
+                      width={20}
+                      fill={ (songData.energy * 100) }
+                      tintColor="#07617D"
+                      backgroundColor="#2a2a2a">
+                      {
+                        (fill) => (
+                          <Text style={styles.points}>
+                            { Math.round(songData.energy * 100) }
+                          </Text>
+                        )
+                      }
+                    </AnimatedCircularProgress>
+                    <Text style={styles.text}>Energy</Text>
+                  </View>
+                  <View style={styles.column}>
+                    <AnimatedCircularProgress
+                      rotation={0}
+                      style={styles.graph}
+                      size={100}
+                      width={20}
+                      fill={ (songData.speechiness * 100) }
+                      tintColor="#07617D"
+                      backgroundColor="#2a2a2a">
+                      {
+                        (fill) => (
+                          <Text style={styles.points}>
+                            { Math.round(songData.speechiness * 100) }
+                          </Text>
+                        )
+                      }
+                    </AnimatedCircularProgress>
+                    <Text style={styles.text}>Speechiness</Text>
+                  </View>
+                </View>
+                  <View style={styles.graphContainer}>
+                    <View style={styles.column}>
+                      <AnimatedCircularProgress
+                        rotation={0}
+                        style={styles.graph}
+                        size={100}
+                        width={20}
+                        fill={ (songData.acousticness * 100) }
+                        tintColor="#07617D"
+                        backgroundColor="#2a2a2a">
+                        {
+                          (fill) => (
+                            <Text style={styles.points}>
+                              { Math.round(songData.acousticness * 100) }
+                            </Text>
+                          )
+                        }
+                      </AnimatedCircularProgress>
+                      <Text style={styles.text}>Acousticness</Text>
+                    </View>
+                    <View style={styles.column}>
+                      <AnimatedCircularProgress
+                        rotation={0}
+                        style={styles.graph}
+                        size={100}
+                        width={20}
+                        fill={ (songData.instrumentalness * 100) }
+                        tintColor="#07617D"
+                        backgroundColor="#2a2a2a">
+                        {
+                          (fill) => (
+                            <Text style={styles.points}>
+                              { Math.round(songData.instrumentalness * 100) }
+                            </Text>
+                          )
+                        }
+                      </AnimatedCircularProgress>
+                      <Text style={styles.text}>Instrumentalness</Text>
+                    </View>
+                  </View>
+                  <View style={styles.graphContainer}>
+                    <View style={styles.column}>
+                      <AnimatedCircularProgress
+                        rotation={0}
+                        style={styles.graph}
+                        size={100}
+                        width={20}
+                        fill={ (songData.valence * 100) }
+                        tintColor="#07617D"
+                        backgroundColor="#2a2a2a">
+                        {
+                          (fill) => (
+                            <Text style={styles.points}>
+                              { Math.round(songData.valence * 100) }
+                            </Text>
+                          )
+                        }
+                      </AnimatedCircularProgress>
+                      <Text style={styles.text}>Valence</Text>
+                    </View>
+                    <View style={styles.column}>
+                      <AnimatedCircularProgress
+                        rotation={0}
+                        style={styles.graph}
+                        size={100}
+                        width={20}
+                        fill={ Math.floor( (1 - ((240 - songData.tempo) / 240)) * 100) }
+                        tintColor="#07617D"
+                        backgroundColor="#2a2a2a">
+                        {
+                          (fill) => (
+                            <Text style={styles.points}>
+                              { Math.floor( (1 - ((240 - songData.tempo) / 240)) * 100) }
+                            </Text>
+                          )
+                        }
+                      </AnimatedCircularProgress>
+                      <Text style={styles.text}>Tempo</Text>
+                    </View>
+                  </View>
+              </View>
     }
         return (
           <View>
@@ -75,74 +228,31 @@ class SongDataVisualization extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-  },
-  messageBox: {
-    flex: 1,
-    marginTop: 100,
-  },
-  avatar: {
-    alignSelf: 'center',
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    top: 80,
-  },
-  form: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    top: 85,
-    padding: 5,
-    marginBottom: 15,
-    marginLeft: 15,
-    marginRight: 15,
-  },
-  ebook: {
-    top: 95,
-    left: 15,
-    marginBottom: 10,
-  },
-  orderByNewest: {
-    top: 55,
-    left: 150,
-    marginBottom: 10,
-  },
-  eBookLabel: {
-    top: 50,
-    left: 15,
-    marginBottom: 10,
-    fontSize: 12,
-  },
-  newestLabel: {
-    top: 25,
-    left: 150,
-    marginBottom: 10,
-    fontSize: 12,
-  },
-  callApiButton: {
-    height: 50,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderColor: '#1E77E2',
-    borderWidth: 2,
-    margin: 10,
-    shadowColor: '#1b71E2',
-    shadowRadius: 10,
-    borderRadius: 5,
-    top: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  apiButtonLabel: {
-    fontSize: 24,
-  },
-  scrollView: {
-    top: 20,
-    backgroundColor: '#1E77E2',
-    height: 400
-  },
+    points: {
+      backgroundColor: 'transparent',
+      position: 'absolute',
+      top: 30,
+      left: 15,
+      width: 70,
+      textAlign: 'center',
+      color: '#7591af',
+      fontSize: 35,
+      fontWeight: "100",
+      color: '#F9A828',
+    },
+    graphContainer: {
+      flexDirection: 'row',
+    },
+    graph: {
+      margin: 10,
+    },
+    column: {
+      flexDirection: 'column',
+      marginLeft: 15,
+      marginRight: 15,
+    },
+    text: {
+      textAlign: 'center',
+      color: '#F9A828'
+    }
 });

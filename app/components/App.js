@@ -23,8 +23,8 @@ export default class App extends Component {
           let RouteComponent = route.component;
           return (
             <View style={styles.container}>
-              <Text style={styles.header}>{route.title}</Text>
-              <RouteComponent {...route} navigator={navigator} />
+              <RouteComponent
+              {...route} navigator={navigator} />
             </View>
           )
         }}
@@ -51,7 +51,7 @@ const routes = [
 
 var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
-    if(index > 0) {
+    if(index > 1 && route.title !== "Login") {
       return (
         <TouchableHighlight onPress={() => navigator.pop()}>
           <Text style={styles.prevButton}>Prev</Text>
@@ -63,7 +63,7 @@ var NavigationBarRouteMapper = {
 
   RightButton(route, navigator, index, navState) {
     let display;
-    if(route.title !== "Profile") {
+    if(route.title !== "Profile" && route.__navigatorRouteID !== 0 && route.title !== "Login") {
       display = (
         <TouchableHighlight onPress={() => {
           navigator.push({
@@ -72,11 +72,6 @@ var NavigationBarRouteMapper = {
         })}}>
           <Text style={styles.prevButton}>Profile</Text>
         </TouchableHighlight>
-      )
-    }
-    if(route.title === "Profile" || route.__navigatorRouteID === 0){
-      display = (
-        <Text>{null}</Text>
       )
     }
     return display;
@@ -94,6 +89,7 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       alignItems: 'center',
       top: 50,
+      backgroundColor: '#2E383F',
     },
     header: {
       fontSize: 24,
