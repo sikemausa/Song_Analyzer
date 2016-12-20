@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import { StyleSheet, Dimensions, Image, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
 import Auth0Lock from 'react-native-lock';
 let credentials = require('../../auth0-credentials');
 let lock = new Auth0Lock(credentials);
@@ -41,11 +41,16 @@ class Login extends Component {
   render() {
     return (
       <View>
+      <Image
+        style={{width: width, height: height }}
+        source={require('../../Assets/music.png')}
+      /><View style={styles.container}>
         <TouchableHighlight
-          underlayColor='#949494'
+          style={{alignItems: 'center'}}
           onPress={() => this.login()}>
-          <Text>Log in</Text>
+          <Text style={styles.loginButton}>Log In</Text>
         </TouchableHighlight>
+        </View>
       </View>
     )
   }
@@ -55,26 +60,20 @@ export default tokenContainer(userContainer(Login));
 
 let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      top: 15,
-    },
-    navLink: {
-      fontSize: 16,
-      fontWeight: '900',
-      textAlign: 'center',
-      marginBottom: 50,
-      color: '#1d9758'
-    },
-    header: {
-      fontSize: 24,
-      fontWeight: '900',
-      textAlign: 'center',
-      marginBottom: 5,
-    },
-    dinoList: {
-      padding: 5,
-    },
+  loginButton: {
+    color: '#F9A828',
+    transform:[{translateY: 5}],
+    textAlign: 'center',
+    fontSize: 15,
+  },
+  container: {
+    borderRadius: 25,
+    height: 30,
+    width: 150,
+    backgroundColor: '#000000',
+    transform:[{translateY: -300}],
+    borderColor: '#F9A828',
+    borderWidth: 2,
+    alignSelf: 'center'
+  }
 })

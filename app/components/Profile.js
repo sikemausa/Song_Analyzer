@@ -22,7 +22,6 @@ class Profile extends Component {
 
   render() {
     const { user, token } = this.props;
-    console.log(this.props);
     let firstName = user.extraInfo.given_name;
     let display;
     if(this.state.isEditing){

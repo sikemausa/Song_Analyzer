@@ -78,7 +78,7 @@ var NavigationBarRouteMapper = {
   },
 
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.navTitle }>Sick Beats</Text>
+    return <Text style={ styles.header }></Text>
   }
 };
 
@@ -93,9 +93,12 @@ const styles = StyleSheet.create({
     },
     header: {
       fontSize: 24,
-      fontWeight: '900',
       textAlign: 'center',
       marginBottom: 5,
+      backgroundColor: '#2E383F',
+      color: '#F9A828',
+      width: width,
+      height: 30,
     },
     dinoList: {
       padding: 5,

@@ -17,7 +17,7 @@ class SongDataVisualization extends Component {
     const { songData } = this.props;
     let display;
     if(this.props.songData.length === 0){
-      display = <Text>Sick beats coming in hot!</Text>;
+      display = <Text style={ { top: 200, color: "#FFF", fontSize: 25 } }>Sick beats coming in hot!</Text>;
     }
     if(this.props.songData.length !== 0 ){
       display = (
