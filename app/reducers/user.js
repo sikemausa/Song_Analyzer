@@ -8,7 +8,7 @@ const user = (state = initialState, action) => {
 
   switch (type) {
     case 'GET_USER':
-      return data;
+      return Map(data);
   }
 
   return state;

@@ -14,7 +14,7 @@ class SongDataVisualization extends Component {
   }
 
   render() {
-    const { songData } = this.props;
+    let songData = this.props.songData.toJS();
     let display;
     if(this.props.songData.length === 0){
       display = <Text style={ { top: 200, color: "#FFF", fontSize: 25 } }>Sick beats, coming in hot</Text>;
@@ -22,6 +22,7 @@ class SongDataVisualization extends Component {
     if(this.props.songData.length !== 0 ){
       display = (
                   <View>
+                  <Text style ={{alignSelf: "center"}}>Insert Song name here</Text>
                     <View style={styles.graphContainer}>
                       <Graph
                         data={ Math.round(songData.danceability * 100)}
@@ -39,7 +40,7 @@ class SongDataVisualization extends Component {
                     />
                     <Graph
                       data={ Math.round(songData.speechiness * 100) }
-                      attribute ="Vocals"
+                      attribute ="Speechiness"
                     />
                     </View>
                       <View style={styles.graphContainer}>
@@ -117,10 +118,8 @@ const styles = StyleSheet.create({
       left: 15,
       width: 70,
       textAlign: 'center',
-      color: '#7591af',
       fontSize: 35,
       fontWeight: "100",
-      color: '#F9A828',
     },
     graphContainer: {
       flexDirection: 'row',

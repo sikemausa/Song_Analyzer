@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet,
          Dimensions,
-         Platform,
          Text,
          View,
-         Switch,
          Navigator,
-         TouchableHighlight } from 'react-native';
+         TouchableHighlight
+       } from 'react-native';
 import Login from './Login';
 import Search from './Search';
 import SongList from './SongList';

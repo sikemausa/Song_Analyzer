@@ -26,9 +26,8 @@ class Search extends Component{
    }
 
    render() {
-     const { user } = this.props;
       return (
-        <View>
+        <View style={{flex: 1, alignItems: 'center'}}>
         <Image
           style={styles.image}
           source={require('../../Assets/note.png')}
@@ -45,9 +44,9 @@ class Search extends Component{
           </TouchableHighlight>
           <View style={styles.container}>
             <TouchableHighlight
-              style={{alignItems: 'center'}}
+              style={{ alignSelf: 'center' }}
               onPress={() => this.searchApiForSongs()}>
-              <Text style={styles.loginButton}>Search</Text>
+              <Text style={styles.searchButton}>Search</Text>
             </TouchableHighlight>
             </View>
         </View>
@@ -101,7 +100,9 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     marginLeft: 15,
     marginRight: 15,
-    backgroundColor: "#ECECEB"
+    backgroundColor: "#ECECEB",
+    borderRadius: 5,
+    paddingLeft: 10,
   },
   text: {
     fontSize: 25,
@@ -116,21 +117,20 @@ const styles = StyleSheet.create({
     top: 110,
   },
   container: {
-    position: 'absolute',
     borderRadius: 25,
     height: 40,
-    width: 150,
-    backgroundColor: '#000000',
-    top: 375,
-    left: 80,
-    borderColor: '#F9A828',
+    width: 120,
+    backgroundColor: '#07617D',
+    top: 275,
+    borderColor: '#4f6c7e',
     borderWidth: 2,
-    alignSelf: 'center'
   },
-  loginButton: {
-    color: '#F9A828',
+  searchButton: {
+    color: '#FFFFFF',
     transform:[{translateY: 8}],
     textAlign: 'center',
     fontSize: 15,
+    width: 120,
+    height: 40
   },
 });

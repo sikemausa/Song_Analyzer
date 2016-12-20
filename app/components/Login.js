@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Image, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import { StyleSheet,
+  Dimensions,
+  Image,
+  Text,
+  View,
+  Navigator,
+  TouchableHighlight
+} from 'react-native';
 import Auth0Lock from 'react-native-lock';
 let credentials = require('../../auth0-credentials');
 let lock = new Auth0Lock(credentials);
@@ -16,6 +23,24 @@ class Login extends Component {
       id: null,
     };
    }
+
+  render() {
+    return (
+      <View>
+      <Image
+        style={{width: width, height: height }}
+        source={require('../../Assets/music.png')}
+      />
+      <View style={styles.container}>
+        <TouchableHighlight
+          style={{alignItems: 'center'}}
+          onPress={() => this.login()}>
+          <Text style={styles.loginButton}>Log In</Text>
+        </TouchableHighlight>
+        </View>
+      </View>
+    )
+  }
 
   login() {
     const { getUser, getToken } = this.props;
@@ -37,23 +62,6 @@ class Login extends Component {
       });
     });
   }
-
-  render() {
-    return (
-      <View>
-      <Image
-        style={{width: width, height: height }}
-        source={require('../../Assets/music.png')}
-      /><View style={styles.container}>
-        <TouchableHighlight
-          style={{alignItems: 'center'}}
-          onPress={() => this.login()}>
-          <Text style={styles.loginButton}>Log In</Text>
-        </TouchableHighlight>
-        </View>
-      </View>
-    )
-  }
 }
 
 export default tokenContainer(userContainer(Login));
@@ -61,19 +69,21 @@ export default tokenContainer(userContainer(Login));
 let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
   loginButton: {
-    color: '#F9A828',
+    color: '#FFFFFF',
     transform:[{translateY: 8}],
     textAlign: 'center',
     fontSize: 15,
+    height: 40,
+    width: 110,
   },
   container: {
     borderRadius: 25,
     height: 40,
-    width: 150,
-    backgroundColor: '#000000',
+    width: 110,
+    backgroundColor: '#07617D',
     transform:[{translateY: -300}],
-    borderColor: '#F9A828',
+    borderColor: '#4f6c7e',
     borderWidth: 2,
-    alignSelf: 'center'
+    alignSelf: 'center',
   }
 })

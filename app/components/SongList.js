@@ -9,7 +9,9 @@ class SongList extends Component {
    }
 
   render() {
-    const { songs, navigator } = this.props;
+    const { navigator } = this.props;
+    let songs = this.props.songs.toJS();
+    
     return (
       <ScrollView
         style={styles.scrollView}>

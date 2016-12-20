@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 class Graph extends Component {
@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
       fontSize: 35,
       fontWeight: "100",
       color: '#F9A828',
-    },
-    graphContainer: {
-      flexDirection: 'row',
     },
     graph: {
       margin: 10,
