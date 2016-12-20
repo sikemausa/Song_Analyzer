@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createFragment, StyleSheet, Image, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView, Button } from 'react-native';
+import { TextInput, createFragment, StyleSheet, Image, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView, Button } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import userContainer from '../containers/userContainer';
 import tokenContainer from '../containers/tokenContainer';
@@ -11,26 +11,51 @@ import moment from 'moment';
 class Profile extends Component {
   constructor (props) {
    super(props);
+    const { user } = this.props;
+      let defaultName = user.extraInfo.given_name;
+      let editedName = user.userMetadata.name;
     this.state = {
-      
+      name: editedName || defaultName,
+      isEditing: false,
     };
    }
 
   render() {
     const { user, token } = this.props;
+    console.log(this.props);
     let firstName = user.extraInfo.given_name;
+    let display;
+    if(this.state.isEditing){
+      display = (
+        <TextInput
+        style={{ width: 100, height: 40 }}
+        value={this.state.name}
+        onChangeText={(text) => this.setState({name: text})}
+        />
+      )
+    }
+    if(!this.state.isEditing) {
+      display = (
+        <Text>{this.state.name}</Text>
+      )
+    }
       return (
         <View>
           <View style={styles.profile}>
-            <TouchableHighlight onPress={() => this.updateUserInfo()}>
             <Text style={styles.title}>Thanks for dropping in {firstName}!</Text>
-            </TouchableHighlight>
             <Image
               style={styles.image}
               source={{uri: user.picture}}
             />
           <View>
-          <Text>Name: {firstName}</Text>
+          <Text>Name: </Text>
+          {display}
+          <View>
+          <Switch
+            onValueChange={value => this.handleEditSwitch(value)}
+            value={this.state.isEditing}
+          />
+          </View>
           </View>
           <Button
             style={styles.button}
@@ -41,6 +66,11 @@ class Profile extends Component {
           </View>
           </View>
       );
+  }
+
+  handleEditSwitch(value) {
+    this.setState({isEditing: value});
+    this.updateUserInfo();
   }
 
   logOut() {
@@ -56,7 +86,7 @@ class Profile extends Component {
   updateUserInfo() {
     const { user, token } = this.props;
     auth0.users(`${token.idToken}`)
-    .patch(`${user.userId}`, {'first_name': 'John', 'last_name': 'Doe'})
+    .patch(`${user.userId}`, {'name': this.state.name})
     .then(response => console.log(response))
     .catch(error => console.log(error));
   }

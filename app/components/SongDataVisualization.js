@@ -14,7 +14,6 @@ class SongDataVisualization extends Component {
 
   render() {
     const { songData } = this.props;
-    console.log(this.props);
     let display;
     if(this.props.songData.length === 0){
       display = <Text>Data loading: Please wait</Text>;
