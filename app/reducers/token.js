@@ -8,7 +8,7 @@ const token = (state = initialState, action) => {
 
   switch (type) {
     case 'GET_TOKEN':
-      return data;
+      return Map(data);
   }
 
   return state;

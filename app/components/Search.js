@@ -8,6 +8,8 @@ import {
   Alert,
   ScrollView,
   Row,
+  Image,
+  Dimensions,
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -24,9 +26,12 @@ class Search extends Component{
    }
 
    render() {
-     const { user } = this.props;
       return (
-        <View>
+        <View style={{flex: 1, alignItems: 'center'}}>
+        <Image
+          style={styles.image}
+          source={require('../../Assets/note.png')}
+        />
           <TextInput
             style={styles.form}
             placeholder={'Search'}
@@ -34,10 +39,16 @@ class Search extends Component{
             value={this.state.subject}
             >
           </TextInput>
-          <TouchableHighlight
-            onPress={() => this.searchApiForSongs()}>
-            <Text>Search for songs</Text>
+          <TouchableHighlight>
+            <Text style={styles.text}>Search for sick beats!</Text>
           </TouchableHighlight>
+          <View style={styles.container}>
+            <TouchableHighlight
+              style={{ alignSelf: 'center' }}
+              onPress={() => this.searchApiForSongs()}>
+              <Text style={styles.searchButton}>Search</Text>
+            </TouchableHighlight>
+            </View>
         </View>
       )
     }
@@ -77,15 +88,49 @@ class Search extends Component{
 
 export default songsContainer(userContainer(Search))
 
+let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
   form: {
     height: 40,
+    width: 300,
     borderColor: 'gray',
     borderWidth: 1,
-    top: 85,
+    top: 300,
     padding: 5,
     marginBottom: 15,
     marginLeft: 15,
     marginRight: 15,
+    backgroundColor: "#ECECEB",
+    borderRadius: 5,
+    paddingLeft: 10,
+  },
+  text: {
+    fontSize: 25,
+    color: "#ECECEB",
+    alignSelf: 'center',
+  },
+  image: {
+    position: 'absolute',
+    width: 150,
+    height: 150,
+    left: 80,
+    top: 110,
+  },
+  container: {
+    borderRadius: 25,
+    height: 40,
+    width: 120,
+    backgroundColor: '#07617D',
+    top: 275,
+    borderColor: '#4f6c7e',
+    borderWidth: 2,
+  },
+  searchButton: {
+    color: '#FFFFFF',
+    transform:[{translateY: 8}],
+    textAlign: 'center',
+    fontSize: 15,
+    width: 120,
+    height: 40
   },
 });

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet,
          Dimensions,
-         Platform,
          Text,
          View,
-         Switch,
          Navigator,
-         TouchableHighlight } from 'react-native';
+         TouchableHighlight
+       } from 'react-native';
 import Login from './Login';
 import Search from './Search';
 import SongList from './SongList';
@@ -78,7 +77,7 @@ var NavigationBarRouteMapper = {
   },
 
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.navTitle }>Sick Beats</Text>
+    return <Text style={ styles.header }></Text>
   }
 };
 
@@ -93,11 +92,10 @@ const styles = StyleSheet.create({
     },
     header: {
       fontSize: 24,
-      fontWeight: '900',
       textAlign: 'center',
       marginBottom: 5,
-    },
-    dinoList: {
-      padding: 5,
+      backgroundColor: '#2E383F',
+      width: width,
+      height: 30,
     },
 })
