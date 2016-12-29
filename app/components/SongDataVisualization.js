@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
-import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { StyleSheet, View, Text } from 'react-native';
 import songDataContainer from '../containers/songDataContainer';
 import Graph from './Graph';
+import base64 from 'base-64';
 
 class SongDataVisualization extends Component {
   constructor (props) {
@@ -17,12 +17,11 @@ class SongDataVisualization extends Component {
     let songData = this.props.songData.toJS();
     let display;
     if(this.props.songData.length === 0){
-      display = <Text style={ { top: 200, color: "#FFF", fontSize: 25 } }>Sick beats, coming in hot</Text>;
+      display = <Text style={styles.text}>Sick beats, coming in hot</Text>;
     }
     if(this.props.songData.length !== 0 ){
       display = (
                   <View>
-                  <Text style ={{alignSelf: "center"}}>Insert Song name here</Text>
                     <View style={styles.graphContainer}>
                       <Graph
                         data={ Math.round(songData.danceability * 100)}
@@ -76,8 +75,8 @@ class SongDataVisualization extends Component {
   authorizeSearch() {
     let authTokenEndpoint = 'https://accounts.spotify.com/api/token'
     let spotifyClientId = '91ef68d8a09e45218d1b72d3154ddf14';
-    let spotifyClientSecret = '08de9b68a652445699879ab6e4aa8d0e'
-    let encodedAuthorization = btoa(spotifyClientId + ":" + spotifyClientSecret);
+    let spotifyClientSecret = '08de9b68a652445699879ab6e4aa8d0e';
+    let encodedAuthorization = base64.encode(spotifyClientId + ":" + spotifyClientSecret);
     fetch(authTokenEndpoint, {
       method: "POST",
       body: "grant_type=client_credentials",
@@ -111,29 +110,12 @@ class SongDataVisualization extends Component {
 
 
 const styles = StyleSheet.create({
-    points: {
-      backgroundColor: 'transparent',
-      position: 'absolute',
-      top: 30,
-      left: 15,
-      width: 70,
-      textAlign: 'center',
-      fontSize: 35,
-      fontWeight: "100",
-    },
     graphContainer: {
       flexDirection: 'row',
     },
-    graph: {
-      margin: 10,
-    },
-    column: {
-      flexDirection: 'column',
-      marginLeft: 15,
-      marginRight: 15,
-    },
     text: {
-      textAlign: 'center',
-      color: '#F9A828'
-    }
+      top: 200,
+      color: "#FFF",
+      fontSize: 25,
+    },
 });

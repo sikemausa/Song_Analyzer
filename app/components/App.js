@@ -52,7 +52,9 @@ var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
     if(index > 1 && route.title !== "Login") {
       return (
-        <TouchableHighlight onPress={() => navigator.pop()}>
+        <TouchableHighlight
+         style={styles.button}
+         onPress={() => navigator.pop()}>
           <Text style={styles.prevButton}>Prev</Text>
         </TouchableHighlight>
       )
@@ -64,7 +66,9 @@ var NavigationBarRouteMapper = {
     let display;
     if(route.title !== "Profile" && route.__navigatorRouteID !== 0 && route.title !== "Login") {
       display = (
-        <TouchableHighlight onPress={() => {
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => {
           navigator.push({
           title: 'Profile',
           component: Profile,
@@ -98,4 +102,14 @@ const styles = StyleSheet.create({
       width: width,
       height: 30,
     },
+    button: {
+      width: 60,
+      height: 40,
+      backgroundColor: '#ECECEB',
+      borderRadius: 5,
+    },
+    prevButton: {
+      textAlign: 'center',
+      top: 10,
+    }
 })

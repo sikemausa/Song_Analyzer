@@ -6,15 +6,9 @@ import {
   TouchableHighlight,
   StyleSheet,
   Alert,
-  ScrollView,
-  Row,
   Image,
-  Dimensions,
 } from 'react-native';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import songsContainer from '../containers/songsContainer';
-import userContainer from '../containers/userContainer';
 import SongList from './SongList';
 
 class Search extends Component{
@@ -86,9 +80,8 @@ class Search extends Component{
 
 }
 
-export default songsContainer(userContainer(Search))
+export default songsContainer(Search)
 
-let { height, width } = Dimensions.get(`window`);
 const styles = StyleSheet.create({
   form: {
     height: 40,

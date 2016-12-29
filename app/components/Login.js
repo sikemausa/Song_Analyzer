@@ -13,7 +13,6 @@ let lock = new Auth0Lock(credentials);
 import userContainer from '../containers/userContainer';
 import tokenContainer from '../containers/tokenContainer';
 import Search from './Search';
-import Profile from './Profile';
 
 class Login extends Component {
   constructor (props) {

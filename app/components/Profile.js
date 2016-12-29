@@ -6,16 +6,13 @@ import { TextInput,
          Text,
          View,
          Switch,
-         Navigator,
          TouchableHighlight
        } from 'react-native';
-import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import userContainer from '../containers/userContainer';
 import tokenContainer from '../containers/tokenContainer';
 import Auth0 from 'react-native-auth0';
 const auth0 = new Auth0('https://song-analyzer.auth0.com');
 import Login from './Login';
-import moment from 'moment';
 
 class Profile extends Component {
   constructor (props) {
@@ -37,7 +34,7 @@ class Profile extends Component {
     if(this.state.isEditing){
       display = (
         <TextInput
-        style={{ alignSelf: 'center', fontSize: 24, color: "red", width: width, height: 30, textAlign: "center" }}
+        style={styles.nameText}
         value={this.state.name}
         onChangeText={(text) => this.setState({name: text})}
         />
@@ -45,7 +42,7 @@ class Profile extends Component {
     }
     if(!this.state.isEditing) {
       display = (
-        <Text style={{alignSelf: 'center', fontSize: 24, color: "#FFFFFF", textAlign: "center"}}>{this.state.name}</Text>
+        <Text style={styles.edittingText}>{this.state.name}</Text>
       )
     }
       return (
@@ -140,5 +137,19 @@ const styles = StyleSheet.create({
     borderColor: '#4f6c7e',
     borderWidth: 2,
     alignSelf: 'center'
-  }
+  },
+  edittingText: {
+    alignSelf: 'center',
+    fontSize: 24,
+    color: "#FFFFFF",
+    textAlign: "center"
+  },
+  nameText: {
+    alignSelf: 'center',
+    fontSize: 24,
+    color: "red",
+    width: width,
+    height: 30,
+    textAlign: "center"
+  },
 });

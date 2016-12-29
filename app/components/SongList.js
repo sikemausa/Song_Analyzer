@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import songsContainer from '../containers/songsContainer';
 import SongOverview from './SongOverview';
 
@@ -11,7 +11,7 @@ class SongList extends Component {
   render() {
     const { navigator } = this.props;
     let songs = this.props.songs.toJS();
-    
+
     return (
       <ScrollView
         style={styles.scrollView}>

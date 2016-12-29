@@ -16,13 +16,13 @@ class Graph extends Component {
           style={styles.graph}
           size={100}
           width={20}
-          fill={ data }
+          fill={data}
           tintColor="#07617D"
           backgroundColor="#2a2a2a">
           {
             (fill) => (
               <Text style={styles.points}>
-                { data }
+                {data}
               </Text>
             )
           }
