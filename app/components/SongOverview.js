@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Dimensions, Platform, Text, View, Switch, Navigator, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import SongDataVisualization from './SongDataVisualization';
 
 class SongOverview extends Component {
@@ -25,6 +25,7 @@ class SongOverview extends Component {
       component: SongDataVisualization,
       passProps: {
         id: this.props.song.id,
+        song: this.props.song,
         navigator: this.props.navigator
       }
     });
