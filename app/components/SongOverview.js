@@ -25,6 +25,7 @@ class SongOverview extends Component {
       component: SongDataVisualization,
       passProps: {
         id: this.props.song.id,
+        song: this.props.song,
         navigator: this.props.navigator
       }
     });
