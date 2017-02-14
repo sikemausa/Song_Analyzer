@@ -95,11 +95,16 @@ const styles = StyleSheet.create({
     button: {
       width: 60,
       height: 40,
-      backgroundColor: '#ECECEB',
+      backgroundColor: '#7591af',
+      borderRadius: 2,
     },
     prevButton: {
       textAlign: 'center',
       top: 10,
+      color: '#e0f1f9',
+      fontSize: 15,
+      fontFamily: 'helvetica',
+      margin: 5,
     },
     nav: {
       backgroundColor: '#2E383F',
