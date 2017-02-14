@@ -28,8 +28,7 @@ export default class App extends Component {
           )
         }}
         navigationBar={
-        <Navigator.NavigationBar
-          style={ styles.nav }
+        <Navigator.NavigationBar style={styles.nav}
           routeMapper={NavigationBarRouteMapper} />
         }
         configureScene={(route, routeStack) =>
@@ -79,9 +78,8 @@ var NavigationBarRouteMapper = {
     }
     return display;
   },
-
   Title(route, navigator, index, navState) {
-    return <Text style={ styles.header }></Text>
+    return <Text></Text>
   }
 };
 
@@ -94,22 +92,21 @@ const styles = StyleSheet.create({
       top: 50,
       backgroundColor: '#2E383F',
     },
-    header: {
-      fontSize: 24,
-      textAlign: 'center',
-      marginBottom: 5,
-      backgroundColor: '#2E383F',
-      width: width,
-      height: 30,
-    },
     button: {
       width: 60,
       height: 40,
-      backgroundColor: '#ECECEB',
-      borderRadius: 5,
+      backgroundColor: '#7591af',
+      borderRadius: 2,
     },
     prevButton: {
       textAlign: 'center',
       top: 10,
+      color: '#e0f1f9',
+      fontSize: 15,
+      fontFamily: 'helvetica',
+      margin: 5,
+    },
+    nav: {
+      backgroundColor: '#2E383F',
     }
 })
