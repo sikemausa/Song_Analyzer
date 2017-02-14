@@ -18,7 +18,6 @@ class SongDataVisualization extends Component {
   }
 
   render() {
-    console.log(this.props.passProps.song);
     let songData = this.props.songData.toJS();
     let display;
     if(this.props.songData.length === 0){
@@ -27,11 +26,18 @@ class SongDataVisualization extends Component {
     if(this.props.songData.length !== 0 ){
       display = (
                   <View>
-                    <Text>{this.props.passProps.song.name}</Text>
-                    <Text>{this.props.passProps.song.artists[0].name}</Text>
-                    <Button title='⏯'
-                            onPress={() => this.toggleAudio()}>
-                    </Button>
+                    <View style={styles.titleContainer}>
+                      <View>
+                        <Text style={styles.songTitleStyle}>
+                          {this.props.passProps.song.name}
+                        </Text>
+                        <Text style={styles.songArtistStyle}>{this.props.passProps.song.artists[0].name}</Text>
+                      </View>
+                      <Button style={styles.buttonStyle}
+                              title='⏯'
+                              onPress={() => this.toggleAudio()}>
+                      </Button>
+                    </View>
                     <View>
                       <View style={styles.graphContainer}>
                         <Graph
@@ -151,7 +157,31 @@ class SongDataVisualization extends Component {
 
 
 const styles = StyleSheet.create({
+    titleContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      alignSelf: 'center',
+      margin: 2,
+    },
+    songTitleStyle: {
+      top: 15,
+      fontSize: 18,
+      color: '#e0f1f9',
+      fontSize: 20,
+      fontFamily: 'helvetica',
+      margin: 2,
+    },
+    songArtistStyle: {
+      marginTop: 3,
+      fontSize: 18,
+      top: 15,
+      color: '#F9A828',
+      fontSize: 15,
+      margin: 2,
+    },
     graphContainer: {
+      alignSelf: 'center',
+      top: 10,
       flexDirection: 'row',
     },
     text: {
