@@ -18,8 +18,8 @@ Users are presented a log-in screen (courtesy of Auth-0) and proceed to log in u
 
 ## Build Setup
 
-# install dependencies
+### install dependencies
 npm install
 
-# serve with device simulator (Xcode)
+### serve with device simulator (Xcode)
 react-native run-ios or react-native run-android
