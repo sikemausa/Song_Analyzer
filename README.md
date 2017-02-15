@@ -16,6 +16,9 @@ Users are presented a log-in screen (courtesy of Auth-0) and proceed to log in u
 
 ## Images
 
+![screen shot 2017-02-14 at 4 56 14 pm](https://cloud.githubusercontent.com/assets/19242172/22954996/04d00780-f2d7-11e6-86a2-1227deb2bf7e.png)
+![screen shot 2017-02-14 at 4 57 30 pm](https://cloud.githubusercontent.com/assets/19242172/22955001/0bf0c8ce-f2d7-11e6-81bb-511a78863a01.png)
+
 ## Build Setup
 
 ### install dependencies
