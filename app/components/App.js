@@ -95,13 +95,14 @@ const styles = StyleSheet.create({
     button: {
       width: 60,
       height: 40,
-      backgroundColor: '#7591af',
+      backgroundColor: '#F9A828',
       borderRadius: 2,
+      opacity: .8,
     },
     prevButton: {
       textAlign: 'center',
       top: 10,
-      color: '#e0f1f9',
+      color: 'black',
       fontSize: 15,
       fontFamily: 'helvetica',
       margin: 5,
