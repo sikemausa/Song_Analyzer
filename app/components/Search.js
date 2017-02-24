@@ -61,7 +61,16 @@ class Search extends Component{
       })
       .then(response => response.json())
       .then(responseJson => { getSongs(responseJson);
-        if(responseJson.tracks.items.length > 0) {
+        if(responseJson.tracks.items.length === 1) {
+          Alert.alert(
+            `Right on!`,
+            `Your search returned ${responseJson.tracks.items.length} sick beat`);
+          return this.props.navigator.push({
+            title: 'SongList',
+            component: SongList,
+          });
+          }
+        if(responseJson.tracks.items.length > 1) {
           Alert.alert(
             `Right on!`,
             `Your search returned ${responseJson.tracks.items.length} sick beats`);

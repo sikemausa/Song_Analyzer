@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       alignSelf: 'center',
       margin: 2,
+      top: -9,
     },
     songTitleStyle: {
       top: 15,
@@ -178,6 +179,7 @@ const styles = StyleSheet.create({
       color: '#F9A828',
       fontSize: 15,
       margin: 2,
+      alignSelf: 'center',
     },
     graphContainer: {
       alignSelf: 'center',
